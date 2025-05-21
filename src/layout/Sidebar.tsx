@@ -38,8 +38,9 @@ const Sidebar: React.FC = () => {
           Trusted way of banking for 3,000+ SMEs and startups in Singapore
         </p>
         <nav className="space-y-16" role="navigation" aria-label="Main sidebar">
-          {menuItems.map((item) => (
+          {menuItems.map((item, index) => (
             <MenuItem
+              key={`${item.label}-${index}`}
               label={item.label}
               Icon={item.icon}
               path={item.path}
