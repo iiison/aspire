@@ -1,0 +1,79 @@
+{
+  "cards": [
+    {
+      "id": "1",
+      "cardHolder": {
+        "firstName": "Mark",
+        "lastName": "Henry"
+      },
+      "number": ["4556", "7375", "8689", "9855"],
+      "expiry": {
+        "month": 12,
+        "year": 2026
+      },
+      "cvv": 123,
+      "vendor": "visa",
+      "isFrozen": false
+    },
+    {
+      "id": "2",
+      "cardHolder": {
+        "firstName": "Jane",
+        "lastName": "Doe"
+      },
+      "number": ["5204", "8888", "8888", "8885"],
+      "expiry": {
+        "month": 6,
+        "year": 2027
+      },
+      "cvv": 456,
+      "vendor": "mastercard",
+      "isFrozen": false
+    },
+    {
+      "id": "3",
+      "cardHolder": {
+        "firstName": "John",
+        "lastName": "Smith"
+      },
+      "number": ["3714", "4963", "5398", "0431"],
+      "expiry": {
+        "month": 3,
+        "year": 2028
+      },
+      "cvv": 789,
+      "vendor": "amex",
+      "isFrozen": true
+    },
+    {
+      "id": "4",
+      "cardHolder": {
+        "firstName": "Alice",
+        "lastName": "Brown"
+      },
+      "number": ["6011", "1111", "1111", "1117"],
+      "expiry": {
+        "month": 8,
+        "year": 2029
+      },
+      "cvv": 321,
+      "vendor": "discover",
+      "isFrozen": false
+    },
+    {
+      "id": "5",
+      "cardHolder": {
+        "firstName": "Raj",
+        "lastName": "Kumar"
+      },
+      "number": ["6521", "1234", "5678", "9016"],
+      "expiry": {
+        "month": 10,
+        "year": 2026
+      },
+      "cvv": 654,
+      "vendor": "rupay",
+      "isFrozen": true
+    }
+  ]
+}

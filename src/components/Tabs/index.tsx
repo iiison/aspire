@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import { useState, type FC } from 'react';
 
 export type TabItem = {
@@ -42,6 +43,7 @@ const Tabs: FC<Props> = ({ tabs, activeId, label = '', onTabChange }) => {
       >
         {tabs.map((tab) => {
           const isActive = activeTabId === tab.id;
+          const inActiveTabClasses = 'text-black/30';
           const activeTabClasses =
             'font-bold text-black/100 border-b-active-secondary';
 
@@ -50,7 +52,10 @@ const Tabs: FC<Props> = ({ tabs, activeId, label = '', onTabChange }) => {
               onClick={handleTabClick(tab.id)}
               key={tab.id}
               role="tab"
-              className={`text-sm text-black/30 border-2 border-transparent pb-2 ${isActive && activeTabClasses}`}
+              className={clsx(
+                'text-sm border-2 border-transparent pb-2 ',
+                isActive ? activeTabClasses : inActiveTabClasses,
+              )}
               aria-selected={isActive}
               aria-controls={`panel-${tab.id}`}
             >
@@ -60,7 +65,7 @@ const Tabs: FC<Props> = ({ tabs, activeId, label = '', onTabChange }) => {
         })}
       </div>
       {activeTab != null ? (
-        <div className="bg-white rounded-lg shadow-tabShadow p-6">
+        <div className="bg-white rounded-lg shadow-tabShadow px-10 py-8">
           <Content />
         </div>
       ) : null}
