@@ -1,0 +1,7 @@
+export { default as Logo } from './Logo';
+export { default as Home } from './Home';
+export { default as Card } from './Card';
+export { default as Payments } from './Payments';
+export { default as Credit } from './Credit';
+export { default as Account } from './Account';
+export { default as PlusSolid } from './PlusSolid';
