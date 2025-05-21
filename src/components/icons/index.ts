@@ -7,3 +7,4 @@ export { default as Credit } from './Credit';
 export { default as Account } from './Account';
 export { default as PlusSolid } from './PlusSolid';
 export { default as Visa } from './Visa';
+export { default as Eye } from './Eye';

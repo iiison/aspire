@@ -9,6 +9,10 @@ const MyDebitCards: FC = () => {
   const [activeCardIndex, setActiveCardIndex] = useState<number>(0);
   const [cardsList, cardsLoading] = useAction<Card[]>(getCards);
 
+  const onCardChange = (index: number) => {
+    setActiveCardIndex(index);
+  };
+
   return (
     <div className="grid grid-cols-2 gap-6">
       <div className="border-gray-50">

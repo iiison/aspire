@@ -13,12 +13,14 @@ type Props = {
   initialIndex?: number;
   className?: string;
   gap?: string;
+  onIndexChange?: (index: number) => void;
 };
 
 const Carousel: FC<Props> = ({
   children,
   className = '',
   initialIndex = 0,
+  onIndexChange,
 }: Props) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(initialIndex);
@@ -33,7 +35,6 @@ const Carousel: FC<Props> = ({
         left: target.offsetLeft - el.offsetLeft,
         behavior: 'smooth',
       });
-      setActiveIndex(index);
     }
   };
 
@@ -46,6 +47,7 @@ const Carousel: FC<Props> = ({
     const childWidth = el.children[0].clientWidth || 1;
     const newIndex = Math.floor(scrollLeft / childWidth);
     setActiveIndex(newIndex);
+    onIndexChange && onIndexChange(newIndex);
   }, []);
 
   useEffect(() => {
