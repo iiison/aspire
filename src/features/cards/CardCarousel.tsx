@@ -15,13 +15,7 @@ const CardsCarousel = ({ cards, isLoading }: Props) => {
     <div className="w-full mb-8">
       <Carousel>
         {cards.map((card: Card) => (
-          <CardPreview
-            cardHolderName="Rohit Soni"
-            lastFourDigits="1234"
-            expiry="12/27"
-            cardType="visa"
-            status="active"
-          />
+          <CardPreview {...card} />
         ))}
       </Carousel>
     </div>

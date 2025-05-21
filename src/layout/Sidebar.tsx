@@ -32,7 +32,7 @@ const Sidebar: React.FC = () => {
     <aside className="w-80 bg-sidebar text-white p-12 flex flex-col justify-between">
       <div>
         <a href="#" className="mb-5 flex w-full">
-          <Logo className="w-[125px] h-[35px]" />
+          <Logo className="w-[125px] h-[35px] fill-white" />
         </a>
         <p className="text-white/30 text-sm text-slate-300 mb-20">
           Trusted way of banking for 3,000+ SMEs and startups in Singapore
