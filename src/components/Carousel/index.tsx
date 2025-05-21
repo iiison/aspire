@@ -30,9 +30,10 @@ const Carousel: FC<Props> = ({
       const target = el.children[index] as HTMLElement;
 
       el.scrollTo({
-        left: target.offsetLeft,
+        left: target.offsetLeft - el.offsetLeft,
         behavior: 'smooth',
       });
+      setActiveIndex(index);
     }
   };
 
@@ -43,7 +44,7 @@ const Carousel: FC<Props> = ({
     }
     const scrollLeft = el.scrollLeft;
     const childWidth = el.children[0].clientWidth || 1;
-    const newIndex = Math.floor(scrollLeft / (childWidth + 16));
+    const newIndex = Math.floor(scrollLeft / childWidth);
     setActiveIndex(newIndex);
   }, []);
 
@@ -64,6 +65,7 @@ const Carousel: FC<Props> = ({
   useEffect(() => {
     scrollToIndex(initialIndex);
   }, [initialIndex]);
+
   return (
     <div className={clsx('w-full', className)}>
       <div
@@ -74,7 +76,7 @@ const Carousel: FC<Props> = ({
       >
         {React.Children.map(children, (child, idx) => (
           <div
-            className="snap-start shrink-0"
+            className="snap-center flex-shrink-0 w-full items-center justify-center flex"
             aria-hidden={idx === activeIndex}
             aria-roledescription="slide"
             role="group"
@@ -83,7 +85,7 @@ const Carousel: FC<Props> = ({
           </div>
         ))}
       </div>
-      <div className="flex justify-center items-center space-x-2">
+      <div className="flex justify-center items-center space-x-2 mt-4">
         {children.map((_, i) => (
           <button
             key={i}
