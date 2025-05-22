@@ -79,7 +79,7 @@ const Carousel: FC<Props> = ({
         {React.Children.map(children, (child, idx) => (
           <div
             className="snap-center flex-shrink-0 w-full items-center justify-center flex"
-            aria-hidden={idx === activeIndex}
+            aria-hidden={idx !== activeIndex}
             aria-roledescription="slide"
             role="group"
           >
@@ -96,7 +96,11 @@ const Carousel: FC<Props> = ({
               activeIndex === i ? 'bg-active h-2 w-4' : 'bg-active/30 h-2 w-2 ',
             )}
             aria-label={`Go to slide ${i + 1}`}
-            onClick={() => scrollToIndex(i)}
+            onClick={() => {
+              setActiveIndex(i);
+              onIndexChange?.(i);
+              scrollToIndex(i);
+            }}
           />
         ))}
       </div>

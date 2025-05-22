@@ -7,7 +7,9 @@ type CardContextType = {
   dispatch: React.Dispatch<CardAction>;
 };
 
-const CardContext = createContext<CardContextType | undefined>(undefined);
+export const CardContext = createContext<CardContextType | undefined>(
+  undefined,
+);
 
 export const CardProvider = ({ children }: { children: React.ReactNode }) => {
   const [cards, dispatch] = useReducer(cardReducer, []);

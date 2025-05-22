@@ -1,4 +1,3 @@
-import React from 'react';
 import { type FC, type ReactNode, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { X } from 'lucide-react';
@@ -59,6 +58,7 @@ export const Modal: FC<ModalProps> = ({
                   {title}
                 </h2>
                 <button
+                  aria-label="Close"
                   onClick={onClose}
                   className="text-gray-400 hover:text-gray-600"
                 >
