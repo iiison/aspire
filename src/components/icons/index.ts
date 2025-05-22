@@ -8,3 +8,8 @@ export { default as Account } from './Account';
 export { default as PlusSolid } from './PlusSolid';
 export { default as Visa } from './Visa';
 export { default as Eye } from './Eye';
+export { default as Freeze } from './Freeze';
+export { default as Meter } from './Meter';
+export { default as Gpay } from './Gpay';
+export { default as Undo } from './Undo';
+export { default as Bin } from './Bin';

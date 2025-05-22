@@ -11,5 +11,5 @@ export function useAction<T>(action: () => Promise<T>) {
     });
   }, [action]);
 
-  return [data, loading];
+  return [data, loading, setData] as const;
 }

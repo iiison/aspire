@@ -4,14 +4,9 @@ import type { Card } from './types';
 
 type Props = {
   cards: Card[];
-  isLoading: boolean;
   onCardChange: (index: number) => void;
 };
-const CardsCarousel = ({ cards, isLoading, onCardChange }: Props) => {
-  if (isLoading) {
-    return <p>Loading...</p>;
-  }
-
+const CardsCarousel = ({ cards, onCardChange }: Props) => {
   return (
     <div className="w-full mb-8">
       <Carousel onIndexChange={onCardChange}>

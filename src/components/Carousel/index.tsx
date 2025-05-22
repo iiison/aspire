@@ -43,7 +43,7 @@ const Carousel: FC<Props> = ({
     if (!el) {
       return;
     }
-    const scrollLeft = el.scrollLeft;
+    const scrollLeft = Math.ceil(el.scrollLeft);
     const childWidth = el.children[0].clientWidth || 1;
     const newIndex = Math.floor(scrollLeft / childWidth);
     setActiveIndex(newIndex);

@@ -12,6 +12,7 @@ module.exports = {
           secondary: '#23CEFD', // active tab
         },
         black: '#222222',
+        navy: '#0C365A',
         action: { DEFAULT: '#325BAF', secondary: '#EDF3FF' },
         shade: '#00000014',
       },
