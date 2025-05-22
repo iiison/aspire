@@ -61,7 +61,6 @@ describe('Tabs component', () => {
   });
 
   it('throws error when tabs prop is empty or not array', () => {
-    // @ts-expect-error intentional to test error
     expect(() => render(<Tabs tabs={[]} />)).toThrow('Please pass tabs');
 
     // @ts-expect-error intentional to test error

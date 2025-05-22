@@ -19,7 +19,7 @@ const menuItems = [
   { label: 'Settings', icon: Account, path: '#' },
 ];
 
-const Sidebar: React.FC = ({ shouldShow }: { shouldShow: boolean }) => {
+const Sidebar: React.FC = () => {
   const [activeLink, setActiveLink] = useState<string>('Cards');
 
   // This is a dummy function to activate menuItems

@@ -1,10 +1,8 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/pagination';
+import 'swiper/swiper-bundle.css';
 import { Pagination } from 'swiper/modules';
 import { useCardContext } from '../../contexts/CardContext';
 import CardPreview from './CardPreview';
-import type { Card } from './types';
 
 type Props = {
   onCardChange: (index: number) => void;
