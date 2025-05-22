@@ -20,6 +20,7 @@ module.exports = {
       },
       boxShadow: {
         tabShadow: '0 1px 12px #00000014',
+        smallShadow: '0 2px 8px #00000001A',
       },
       fontFamily: {
         sans: ['Open Sans', 'sans-serif'],

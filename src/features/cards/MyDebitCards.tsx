@@ -130,7 +130,7 @@ const MyDebitCards: FC = () => {
             </div>
           </>
         ) : (
-          <p>No card</p>
+          <p></p>
         )}
       </div>
     </div>

@@ -21,7 +21,7 @@ export const CollapsiblePanel: FC<CollapsiblePanelProps> = ({
   const toggle = () => setIsOpen((prev) => !prev);
 
   return (
-    <div className="bg-[#F5F9FF] rounded-xl shadow-sm overflow-hidden">
+    <div className="bg-muted rounded-xl shadow-smallShadow overflow-hidden">
       <button
         onClick={toggle}
         className="w-full flex items-center justify-between p-4 focus:outline-none"
