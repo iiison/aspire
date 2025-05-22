@@ -43,9 +43,9 @@ const Tabs: FC<Props> = ({ tabs, activeId, label = '', onTabChange }) => {
       >
         {tabs.map((tab) => {
           const isActive = activeTabId === tab.id;
-          const inActiveTabClasses = 'text-black/30';
+          const inActiveTabClasses = 'md:text-black/30 text-white/30';
           const activeTabClasses =
-            'font-bold text-black/100 border-b-active-secondary';
+            'font-bold md:text-black/100 text-white/100 border-b-active-secondary';
 
           return (
             <button
@@ -65,7 +65,7 @@ const Tabs: FC<Props> = ({ tabs, activeId, label = '', onTabChange }) => {
         })}
       </div>
       {activeTab != null ? (
-        <div className="bg-white rounded-lg shadow-tabShadow px-10 py-8">
+        <div className="bg-navy md:bg-white rounded-lg shadow-tabShadow px-0 py-5 md:px-10 md:py-8">
           <Content />
         </div>
       ) : null}

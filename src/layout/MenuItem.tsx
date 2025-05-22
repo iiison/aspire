@@ -18,7 +18,7 @@ const MenuItem = ({ label, Icon, path, isActive, onClick }: Props) => (
     }`}
   >
     <Icon className="w-6 h-6" />
-    <span>{label}</span>
+    <span className="md:inline hidden">{label}</span>
   </a>
 );
 

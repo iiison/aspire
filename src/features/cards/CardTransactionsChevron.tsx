@@ -39,7 +39,7 @@ export const Transaction = ({
 }: {
   transaction: CardTransaction;
 }) => (
-  <div className="flex items-start gap-3 border-b-muted py-2 border border-transparent">
+  <div className="flex items-start gap-3 border-b-muted py-2 border border-transparent text-black">
     <TransactionTypeIconMap type={transaction.vendor.type.toLowerCase()} />
     <div className="flex-1">
       <div className="flex justify-between">

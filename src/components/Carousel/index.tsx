@@ -12,7 +12,6 @@ type Props = {
   children: ReactNode[];
   initialIndex?: number;
   className?: string;
-  gap?: string;
   onIndexChange?: (index: number) => void;
 };
 
@@ -21,52 +20,85 @@ const Carousel: FC<Props> = ({
   className = '',
   initialIndex = 0,
   onIndexChange,
-}: Props) => {
+}) => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const slidesRef = useRef<(HTMLElement | null)[]>([]);
   const [activeIndex, setActiveIndex] = useState(initialIndex);
+  const isClickScrolling = useRef(false);
 
-  const scrollToIndex = (index: number) => {
+  // Scroll to index (programmatic)
+  const scrollToIndex = useCallback((index: number) => {
     const el = containerRef.current;
-
     if (el && el.children[index]) {
+      isClickScrolling.current = true;
       const target = el.children[index] as HTMLElement;
-
       el.scrollTo({
         left: target.offsetLeft - el.offsetLeft,
         behavior: 'smooth',
       });
-    }
-  };
 
-  const onScroll = useCallback(() => {
-    const el = containerRef.current;
-    if (!el) {
-      return;
+      // Reset flag after scroll animation
+      setTimeout(() => {
+        isClickScrolling.current = false;
+      }, 500);
     }
-    const scrollLeft = Math.ceil(el.scrollLeft);
-    const childWidth = el.children[0].clientWidth || 1;
-    const newIndex = Math.floor(scrollLeft / childWidth);
-    setActiveIndex(newIndex);
-    onIndexChange && onIndexChange(newIndex);
   }, []);
 
   useEffect(() => {
-    const el = containerRef.current;
+    // Initialize refs for each child slide
+    slidesRef.current = Array(children.length)
+      .fill(null)
+      .map((_, i) => containerRef.current?.children[i] as HTMLElement);
 
-    if (!el) {
-      return;
-    }
+    if (!containerRef.current) return;
 
-    el.addEventListener('scroll', onScroll, { passive: true });
+    const observerOptions = {
+      root: containerRef.current,
+      threshold: 0.5, // 50% visible triggers intersection
+    };
+
+    let currentActive = initialIndex;
+
+    const observerCallback: IntersectionObserverCallback = (entries) => {
+      if (isClickScrolling.current) return; // Ignore while programmatic scrolling
+
+      entries.forEach((entry) => {
+        const index = Array.from(containerRef.current!.children).indexOf(
+          entry.target,
+        );
+        if (entry.isIntersecting) {
+          // Pick the slide with largest intersection ratio
+          if (entry.intersectionRatio > 0.5 && index !== currentActive) {
+            currentActive = index;
+            setActiveIndex(index);
+            onIndexChange?.(index);
+          }
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(
+      observerCallback,
+      observerOptions,
+    );
+
+    slidesRef.current.forEach((slide) => {
+      if (slide) observer.observe(slide);
+    });
+
+    // Scroll to initial index on mount
+    scrollToIndex(initialIndex);
 
     return () => {
-      el.removeEventListener('scroll', onScroll);
+      observer.disconnect();
     };
-  }, [onScroll]);
+  }, [children.length, initialIndex, onIndexChange, scrollToIndex]);
 
+  // If initialIndex changes externally, update activeIndex and scroll
   useEffect(() => {
+    setActiveIndex(initialIndex);
     scrollToIndex(initialIndex);
-  }, [initialIndex]);
+  }, [initialIndex, scrollToIndex]);
 
   return (
     <div className={clsx('w-full', className)}>
@@ -78,10 +110,12 @@ const Carousel: FC<Props> = ({
       >
         {React.Children.map(children, (child, idx) => (
           <div
-            className="snap-center flex-shrink-0 w-full items-center justify-center flex"
+            key={idx}
+            className="snap-center flex-shrink-0 w-full flex items-center justify-center"
             aria-hidden={idx !== activeIndex}
             aria-roledescription="slide"
             role="group"
+            tabIndex={idx === activeIndex ? 0 : -1}
           >
             {child}
           </div>
@@ -93,14 +127,11 @@ const Carousel: FC<Props> = ({
             key={i}
             className={clsx(
               'rounded-full transition-all duration-300',
-              activeIndex === i ? 'bg-active h-2 w-4' : 'bg-active/30 h-2 w-2 ',
+              activeIndex === i ? 'bg-active h-2 w-4' : 'bg-active/30 h-2 w-2',
             )}
             aria-label={`Go to slide ${i + 1}`}
-            onClick={() => {
-              setActiveIndex(i);
-              onIndexChange?.(i);
-              scrollToIndex(i);
-            }}
+            aria-current={activeIndex === i}
+            onClick={() => scrollToIndex(i)}
           />
         ))}
       </div>

@@ -19,7 +19,7 @@ const menuItems = [
   { label: 'Settings', icon: Account, path: '#' },
 ];
 
-const Sidebar: React.FC = () => {
+const Sidebar: React.FC = ({ shouldShow }: { shouldShow: boolean }) => {
   const [activeLink, setActiveLink] = useState<string>('Cards');
 
   // This is a dummy function to activate menuItems
@@ -29,15 +29,21 @@ const Sidebar: React.FC = () => {
       setActiveLink(label);
     };
   return (
-    <aside className="w-80 bg-sidebar text-white p-12 flex flex-col justify-between">
-      <div>
-        <a href="#" className="mb-5 flex w-full">
-          <Logo className="w-[125px] h-[35px] fill-white" />
-        </a>
-        <p className="text-white/30 text-sm text-slate-300 mb-20">
-          Trusted way of banking for 3,000+ SMEs and startups in Singapore
-        </p>
-        <nav className="space-y-16" role="navigation" aria-label="Main sidebar">
+    <aside className="w-full lg:w-80 bg-sidebar text-white lg:p-12 p-5 flex flex-row lg:flex-col justify-between lg:static fixed z-10 bottom-0 left-0">
+      <div className="w-full">
+        <div className="lg:flex flex-col hidden w-full">
+          <a href="#" className="mb-5 flex w-full">
+            <Logo className="w-[125px] h-[35px] fill-white" />
+          </a>
+          <p className="text-white/30 text-sm text-slate-300 mb-20 w-full">
+            Trusted way of banking for 3,000+ SMEs and startups in Singapore
+          </p>
+        </div>
+        <nav
+          className="md:space-y-16 flex-row lg:flex-col w-full flex justify-between items-end lg:items-start"
+          role="navigation"
+          aria-label="Main sidebar"
+        >
           {menuItems.map((item, index) => (
             <MenuItem
               key={`${item.label}-${index}`}

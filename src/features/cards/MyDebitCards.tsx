@@ -74,7 +74,7 @@ const MyDebitCards: FC = () => {
   ];
 
   return (
-    <div className="grid grid-cols-12">
+    <div className="2xl:grid 2xl:grid-cols-12">
       <div className="col-span-7">
         {!Array.isArray(cardsList) || cardsList.length === 0 ? (
           <CardLoading />
@@ -95,7 +95,7 @@ const MyDebitCards: FC = () => {
           </>
         )}
       </div>
-      <div className="space-y-4 col-span-4">
+      <div className="space-y-4 col-span-4 2xl:mt-0 mt-8">
         {Array.isArray(cardsList) && cardsList.length > 0 ? (
           <>
             <div className="mb-6">

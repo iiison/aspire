@@ -11,7 +11,7 @@ const CardDetailsChevron: FC<Props> = ({ card }: Props) => {
 
   return (
     <CollapsiblePanel title="Card Details" icon={icon}>
-      <div className="w-full bg-white p-6">
+      <div className="w-full bg-white p-6 text-black">
         <p>
           <span>Card Number: </span>
           <span>{card.number.join(' ')}</span>

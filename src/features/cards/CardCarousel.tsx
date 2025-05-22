@@ -1,21 +1,33 @@
-import type { FC } from 'react';
-import Carousel from '../../components/Carousel';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import { Pagination } from 'swiper/modules';
+import { useCardContext } from '../../contexts/CardContext';
 import CardPreview from './CardPreview';
 import type { Card } from './types';
-import { useCardContext } from '../../contexts/CardContext';
 
 type Props = {
   onCardChange: (index: number) => void;
 };
-const CardsCarousel: FC<Props> = ({ onCardChange }: Props) => {
+
+const CardsCarousel: React.FC<Props> = ({ onCardChange }) => {
   const { cards } = useCardContext();
+
   return (
     <div className="w-full mb-8">
-      <Carousel onIndexChange={onCardChange}>
-        {cards.map((card: Card) => (
-          <CardPreview key={card.id} {...card} />
+      <Swiper
+        modules={[Pagination]}
+        slidesPerView={1}
+        pagination={{ clickable: true }}
+        onSlideChange={(swiper) => onCardChange(swiper.activeIndex)}
+        className="w-full"
+      >
+        {cards.map((card) => (
+          <SwiperSlide key={card.id} className="!flex justify-center">
+            <CardPreview {...card} />
+          </SwiperSlide>
         ))}
-      </Carousel>
+      </Swiper>
     </div>
   );
 };

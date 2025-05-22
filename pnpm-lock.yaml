@@ -20,6 +20,9 @@ dependencies:
   react-dom:
     specifier: ^19.1.0
     version: 19.1.0(react@19.1.0)
+  swiper:
+    specifier: ^11.2.7
+    version: 11.2.7
 
 devDependencies:
   '@eslint/js':
@@ -4737,6 +4740,11 @@ packages:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
     dev: true
+
+  /swiper@11.2.7:
+    resolution: {integrity: sha512-oPJCwdcjFMw3SoBM7AdB1RJzjT7JaE4Mg7TWceTmJ/i2OtF8L01Ct+5eOf48nG3trgR0wXFekWdfnTdl0eg6Pg==}
+    engines: {node: '>= 4.7.0'}
+    dev: false
 
   /symbol-tree@3.2.4:
     resolution: {integrity: sha512-9QNk5KwDF+Bvz+PyObkmSYjI5ksVUYtjW7AU22r2NKcfLJcXp96hkDWU3+XndOsUb+AQ9QhfzfCT2O+CNWT5Tw==}

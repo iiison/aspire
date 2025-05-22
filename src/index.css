@@ -9,3 +9,30 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+body {
+  min-width: 500px;
+}
+
+.swiper.swiper {
+  overflow-y: visible !important;
+}
+.swiper-pagination-bullets {
+  transform: translate();
+}
+
+.swiper-pagination {
+  @apply relative mt-4 !important;
+  bottom: auto !important;
+  text-align: center;
+}
+
+.swiper-pagination-bullet {
+  @apply !opacity-100 w-2 h-2 rounded-full !bg-active/30 !transition-all !duration-300;
+  margin: 0 4px;
+}
+
+.swiper-pagination-bullet-active {
+  @apply !w-4 !bg-active;
+  border-radius: 5px !important;
+}
