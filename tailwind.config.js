@@ -12,7 +12,7 @@ module.exports = {
           secondary: '#23CEFD', // active tab
         },
         black: '#222222',
-        action: '#325BAF',
+        action: { DEFAULT: '#325BAF', secondary: '#EDF3FF' },
         shade: '#00000014',
       },
       boxShadow: {

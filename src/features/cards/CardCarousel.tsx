@@ -16,7 +16,7 @@ const CardsCarousel = ({ cards, isLoading, onCardChange }: Props) => {
     <div className="w-full mb-8">
       <Carousel onIndexChange={onCardChange}>
         {cards.map((card: Card) => (
-          <CardPreview {...card} />
+          <CardPreview key={card.id} {...card} />
         ))}
       </Carousel>
     </div>

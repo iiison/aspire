@@ -1,16 +1,12 @@
 import { memo, useState, type FC } from 'react';
 import clsx from 'clsx';
 import type { Card } from './types';
-import { LogoSm, Visa } from '../../components/icons';
-import { Eye } from 'lucide-react';
-
-type CardStatus = 'active' | 'frozen';
+import { LogoSm, Visa, Eye } from '../../components/icons';
 
 const padWithZero = (number: number): string =>
   number < 10 ? `0${number}` : `${number}`;
 
 const CardPreview: FC<Card> = ({
-  id,
   cvv,
   number,
   expiry,
@@ -25,13 +21,15 @@ const CardPreview: FC<Card> = ({
 
   return (
     <div className="flex flex-col">
-      <button
-        className="mb-4 font-bold bg-transparent text-active space-x-1 ml-auto text-xs flex items-center"
-        onClick={handleButtonClick}
-      >
-        <Eye className="fill-active w-[16px] h-[16px]" />
-        <span>Show card number</span>
-      </button>
+      {!isFrozen && (
+        <button
+          className="mb-4 font-bold bg-transparent text-active space-x-1 ml-auto text-xs flex items-center"
+          onClick={handleButtonClick}
+        >
+          <Eye className="w-[16px] h-[16px] fill-active" />
+          <span>Show card number</span>
+        </button>
+      )}
       <section
         role="region"
         aria-label={`${cardHolder.firstName}'s ${vendor} card`}
