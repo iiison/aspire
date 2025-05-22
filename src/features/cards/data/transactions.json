@@ -1,0 +1,662 @@
+[
+  {
+    "id": "682ebd3e6aec2d996200ef5f",
+    "date": "2024-09-13T01:23:08",
+    "card": {
+      "lastFour": 9855
+    },
+    "vendor": {
+      "name": "Zialactic",
+      "type": "Software"
+    },
+    "status": "completed",
+    "amount": 2398.96,
+    "type": "debit",
+    "currency": "INR"
+  },
+  {
+    "id": "682ebd3ef048f98156b1fe89",
+    "date": "2025-04-20T01:09:27",
+    "card": {
+      "lastFour": 431
+    },
+    "vendor": {
+      "name": "Gogol",
+      "type": "Software"
+    },
+    "status": "pending",
+    "amount": 4468.77,
+    "type": "debit",
+    "currency": "EUR"
+  },
+  {
+    "id": "682ebd3edac8ddfe8cb56723",
+    "date": "2023-02-09T06:20:37",
+    "card": {
+      "lastFour": 8885
+    },
+    "vendor": {
+      "name": "Navir",
+      "type": "Software"
+    },
+    "status": "pending",
+    "amount": 768.03,
+    "type": "debit",
+    "currency": "EUR"
+  },
+  {
+    "id": "682ebd3ef1512efcf49b8617",
+    "date": "2023-0430T05:47:27",
+    "card": {
+      "lastFour": 9016
+    },
+    "vendor": {
+      "name": "Comveyor",
+      "type": "Software"
+    },
+    "status": "completed",
+    "amount": 4081.1,
+    "type": "debit",
+    "currency": "EUR"
+  },
+  {
+    "id": "682ebd3e49bfa7faea1b5403",
+    "date": "2024-07-11T03:34:59",
+    "card": {
+      "lastFour": 9855
+    },
+    "vendor": {
+      "name": "Eternis",
+      "type": "Software"
+    },
+    "status": "pending",
+    "amount": 1799.15,
+    "type": "credit",
+    "currency": "USD"
+  },
+  {
+    "id": "682ebd3e2dae212e7f6faf89",
+    "date": "2023-02-03T01:43:40",
+    "card": {
+      "lastFour": 8885
+    },
+    "vendor": {
+      "name": "Adornica",
+      "type": "Retail"
+    },
+    "status": "pending",
+    "amount": 3021.75,
+    "type": "debit",
+    "currency": "USD"
+  },
+  {
+    "id": "682ebd3efb5ab3d62369ca80",
+    "date": "2025-03-04T10:54:37",
+    "card": {
+      "lastFour": 8885
+    },
+    "vendor": {
+      "name": "Mazuda",
+      "type": "Services"
+    },
+    "status": "failed",
+    "amount": 2322.43,
+    "type": "debit",
+    "currency": "INR"
+  },
+  {
+    "id": "682ebd3ec701667738c2b51f",
+    "date": "2023-09-26T09:03:33",
+    "card": {
+      "lastFour": 9016
+    },
+    "vendor": {
+      "name": "Rooforia",
+      "type": "Food"
+    },
+    "status": "completed",
+    "amount": 1197.44,
+    "type": "credit",
+    "currency": "INR"
+  },
+  {
+    "id": "682ebd3e7e0cc5735fa77be5",
+    "date": "2024-02-27T04:08:19",
+    "card": {
+      "lastFour": 8885
+    },
+    "vendor": {
+      "name": "Silodyne",
+      "type": "Services"
+    },
+    "status": "failed",
+    "amount": 2335.71,
+    "type": "credit",
+    "currency": "SGD"
+  },
+  {
+    "id": "682ebd3ef575a8623bd8bf19",
+    "date": "2024-07-19T05:49:30",
+    "card": {
+      "lastFour": 8885
+    },
+    "vendor": {
+      "name": "Qualitern",
+      "type": "Food"
+    },
+    "status": "failed",
+    "amount": 1139.09,
+    "type": "debit",
+    "currency": "USD"
+  },
+  {
+    "id": "682ebd3ed21b799a18833fa4",
+    "date": "2023-02-20T05:18:18",
+    "card": {
+      "lastFour": 8885
+    },
+    "vendor": {
+      "name": "Emergent",
+      "type": "Software"
+    },
+    "status": "failed",
+    "amount": 2296.22,
+    "type": "debit",
+    "currency": "SGD"
+  },
+  {
+    "id": "682ebd3e249cc6ee58c100fc",
+    "date": "2025-04-09T03:56:57",
+    "card": {
+      "lastFour": 1117
+    },
+    "vendor": {
+      "name": "Viagrand",
+      "type": "Software"
+    },
+    "status": "failed",
+    "amount": 4015.92,
+    "type": "debit",
+    "currency": "SGD"
+  },
+  {
+    "id": "682ebd3e7d4c9911daf94c5e",
+    "date": "2023-06-05T06:27:56",
+    "card": {
+      "lastFour": 431
+    },
+    "vendor": {
+      "name": "Inrt",
+      "type": "Travel"
+    },
+    "status": "failed",
+    "amount": 3600.58,
+    "type": "debit",
+    "currency": "INR"
+  },
+  {
+    "id": "682ebd3ed164ceefd958f4f6",
+    "date": "2025-03-03T04:12:50",
+    "card": {
+      "lastFour": 431
+    },
+    "vendor": {
+      "name": "Netility",
+      "type": "Software"
+    },
+    "status": "pending",
+    "amount": 2826.29,
+    "type": "debit",
+    "currency": "USD"
+  },
+  {
+    "id": "682ebd3e8276944e0edf1996",
+    "date": "2024-01-11T07:54:16",
+    "card": {
+      "lastFour": 8885
+    },
+    "vendor": {
+      "name": "Eschoir",
+      "type": "Services"
+    },
+    "status": "failed",
+    "amount": 2573.4,
+    "type": "debit",
+    "currency": "USD"
+  },
+  {
+    "id": "682ebd3e17a29f8d980e346e",
+    "date": "2024-04-08T09:09:20",
+    "card": {
+      "lastFour": 9855
+    },
+    "vendor": {
+      "name": "Zytrax",
+      "type": "Food"
+    },
+    "status": "completed",
+    "amount": 344.46,
+    "type": "credit",
+    "currency": "INR"
+  },
+  {
+    "id": "682ebd3efdd87ff45e8d14d1",
+    "date": "2023-05-11T02:43:05",
+    "card": {
+      "lastFour": 431
+    },
+    "vendor": {
+      "name": "Renovize",
+      "type": "Food"
+    },
+    "status": "failed",
+    "amount": 4406.94,
+    "type": "debit",
+    "currency": "INR"
+  },
+  {
+    "id": "682ebd3e39934ced908efa3d",
+    "date": "2025-02-26T08:42:14",
+    "card": {
+      "lastFour": 1117
+    },
+    "vendor": {
+      "name": "Cytrak",
+      "type": "Retail"
+    },
+    "status": "completed",
+    "amount": 4328.08,
+    "type": "debit",
+    "currency": "SGD"
+  },
+  {
+    "id": "682ebd3e0cfe89526f5e00be",
+    "date": "2025-02-01T08:15:45",
+    "card": {
+      "lastFour": 431
+    },
+    "vendor": {
+      "name": "Microluxe",
+      "type": "Services"
+    },
+    "status": "completed",
+    "amount": 1189.81,
+    "type": "credit",
+    "currency": "EUR"
+  },
+  {
+    "id": "682ebd3ea351cbfefd537cd0",
+    "date": "2024-02-22T01:15:05",
+    "card": {
+      "lastFour": 9016
+    },
+    "vendor": {
+      "name": "Oceanica",
+      "type": "Food"
+    },
+    "status": "pending",
+    "amount": 2114.54,
+    "type": "debit",
+    "currency": "INR"
+  },
+  {
+    "id": "682ebd3e46d6d56430a69410",
+    "date": "2024-09-01T05:54:03",
+    "card": {
+      "lastFour": 431
+    },
+    "vendor": {
+      "name": "Aquoavo",
+      "type": "Services"
+    },
+    "status": "completed",
+    "amount": 3813.2,
+    "type": "credit",
+    "currency": "EUR"
+  },
+  {
+    "id": "682ebd3e5c512e634be2e6df",
+    "date": "2024-04-11T04:52:52",
+    "card": {
+      "lastFour": 9016
+    },
+    "vendor": {
+      "name": "Suretech",
+      "type": "Travel"
+    },
+    "status": "completed",
+    "amount": 2011.5,
+    "type": "credit",
+    "currency": "INR"
+  },
+  {
+    "id": "682ebd3e4ca43ed8599eead9",
+    "date": "2025-05-07T11:49:00",
+    "card": {
+      "lastFour": 1117
+    },
+    "vendor": {
+      "name": "Namegen",
+      "type": "Retail"
+    },
+    "status": "completed",
+    "amount": 1493.07,
+    "type": "debit",
+    "currency": "SGD"
+  },
+  {
+    "id": "682ebd3e110931a90ef33aa1",
+    "date": "2024-02-12T01:17:43",
+    "card": {
+      "lastFour": 1117
+    },
+    "vendor": {
+      "name": "Optyk",
+      "type": "Software"
+    },
+    "status": "completed",
+    "amount": 3950.5,
+    "type": "credit",
+    "currency": "USD"
+  },
+  {
+    "id": "682ebd3ebd0fc485df3db8ee",
+    "date": "2024-06-16T07:33:17",
+    "card": {
+      "lastFour": 431
+    },
+    "vendor": {
+      "name": "Otherway",
+      "type": "Food"
+    },
+    "status": "pending",
+    "amount": 1884.29,
+    "type": "debit",
+    "currency": "EUR"
+  },
+  {
+    "id": "682ebd3e9681aeef824f63dd",
+    "date": "2024-09-15T05:27:51",
+    "card": {
+      "lastFour": 9016
+    },
+    "vendor": {
+      "name": "Securia",
+      "type": "Retail"
+    },
+    "status": "pending",
+    "amount": 3963.16,
+    "type": "debit",
+    "currency": "INR"
+  },
+  {
+    "id": "682ebd3ebe0fd1ea62cf55e5",
+    "date": "2025-01-15T07:37:17",
+    "card": {
+      "lastFour": 431
+    },
+    "vendor": {
+      "name": "Accusage",
+      "type": "Travel"
+    },
+    "status": "failed",
+    "amount": 1987.24,
+    "type": "credit",
+    "currency": "SGD"
+  },
+  {
+    "id": "682ebd3e103a9e8f1c89f4d9",
+    "date": "2024-03-13T02:49:48",
+    "card": {
+      "lastFour": 8885
+    },
+    "vendor": {
+      "name": "Ozean",
+      "type": "Travel"
+    },
+    "status": "failed",
+    "amount": 1878.93,
+    "type": "credit",
+    "currency": "EUR"
+  },
+  {
+    "id": "682ebd3e9844e64b1ffee1f6",
+    "date": "2023-0130T02:57:17",
+    "card": {
+      "lastFour": 1117
+    },
+    "vendor": {
+      "name": "Callflex",
+      "type": "Travel"
+    },
+    "status": "failed",
+    "amount": 3658.28,
+    "type": "credit",
+    "currency": "EUR"
+  },
+  {
+    "id": "682ebd3e28cf900a1068a96b",
+    "date": "2023-0330T01:50:42",
+    "card": {
+      "lastFour": 431
+    },
+    "vendor": {
+      "name": "Goko",
+      "type": "Food"
+    },
+    "status": "completed",
+    "amount": 2708.23,
+    "type": "debit",
+    "currency": "INR"
+  },
+  {
+    "id": "682ebd3e3c9bedd0bcd6cae4",
+    "date": "2023-05-27T09:38:27",
+    "card": {
+      "lastFour": 9016
+    },
+    "vendor": {
+      "name": "Speedbolt",
+      "type": "Services"
+    },
+    "status": "failed",
+    "amount": 4764.81,
+    "type": "debit",
+    "currency": "USD"
+  },
+  {
+    "id": "682ebd3e3e4570412b6f8b73",
+    "date": "2025-05-09T08:54:01",
+    "card": {
+      "lastFour": 9855
+    },
+    "vendor": {
+      "name": "Soprano",
+      "type": "Retail"
+    },
+    "status": "pending",
+    "amount": 2558.66,
+    "type": "credit",
+    "currency": "USD"
+  },
+  {
+    "id": "682ebd3e694edaf2280480b8",
+    "date": "2025-03-31T03:26:38",
+    "card": {
+      "lastFour": 431
+    },
+    "vendor": {
+      "name": "Confrenzy",
+      "type": "Food"
+    },
+    "status": "completed",
+    "amount": 2763.63,
+    "type": "credit",
+    "currency": "INR"
+  },
+  {
+    "id": "682ebd3e6a81741c155e9df0",
+    "date": "2024-01-06T03:13:03",
+    "card": {
+      "lastFour": 8885
+    },
+    "vendor": {
+      "name": "Kaggle",
+      "type": "Travel"
+    },
+    "status": "pending",
+    "amount": 2192.09,
+    "type": "credit",
+    "currency": "USD"
+  },
+  {
+    "id": "682ebd3eb07dc59e5a40237a",
+    "date": "2023-1130T10:29:01",
+    "card": {
+      "lastFour": 1117
+    },
+    "vendor": {
+      "name": "Straloy",
+      "type": "Food"
+    },
+    "status": "pending",
+    "amount": 3078.28,
+    "type": "debit",
+    "currency": "SGD"
+  },
+  {
+    "id": "682ebd3e6dcf1051befebd41",
+    "date": "2023-09-23T11:04:21",
+    "card": {
+      "lastFour": 8885
+    },
+    "vendor": {
+      "name": "Medesign",
+      "type": "Retail"
+    },
+    "status": "completed",
+    "amount": 1777.35,
+    "type": "credit",
+    "currency": "SGD"
+  },
+  {
+    "id": "682ebd3ef1a252074fa92ffe",
+    "date": "2024-10-08T04:26:14",
+    "card": {
+      "lastFour": 9016
+    },
+    "vendor": {
+      "name": "Geologix",
+      "type": "Retail"
+    },
+    "status": "failed",
+    "amount": 2924.97,
+    "type": "debit",
+    "currency": "EUR"
+  },
+  {
+    "id": "682ebd3e717b0398f24f2e95",
+    "date": "2023-07-29T02:12:20",
+    "card": {
+      "lastFour": 8885
+    },
+    "vendor": {
+      "name": "Iplax",
+      "type": "Retail"
+    },
+    "status": "failed",
+    "amount": 2247.11,
+    "type": "credit",
+    "currency": "EUR"
+  },
+  {
+    "id": "682ebd3edb683848cd67b048",
+    "date": "2024-07-08T07:33:57",
+    "card": {
+      "lastFour": 8885
+    },
+    "vendor": {
+      "name": "Overplex",
+      "type": "Retail"
+    },
+    "status": "failed",
+    "amount": 1946.78,
+    "type": "credit",
+    "currency": "EUR"
+  },
+  {
+    "id": "682ebd3e753dab133605b2be",
+    "date": "2025-05-02T05:51:46",
+    "card": {
+      "lastFour": 9016
+    },
+    "vendor": {
+      "name": "Buzzworks",
+      "type": "Travel"
+    },
+    "status": "failed",
+    "amount": 1332.02,
+    "type": "debit",
+    "currency": "EUR"
+  },
+  {
+    "id": "682ebd3e3c236d1345d9c140",
+    "date": "2025-01-24T03:13:15",
+    "card": {
+      "lastFour": 8885
+    },
+    "vendor": {
+      "name": "Dragbot",
+      "type": "Software"
+    },
+    "status": "completed",
+    "amount": 3583.32,
+    "type": "debit",
+    "currency": "SGD"
+  },
+  {
+    "id": "682ebd3e496ed89855d34759",
+    "date": "2025-05-10T07:21:35",
+    "card": {
+      "lastFour": 8885
+    },
+    "vendor": {
+      "name": "Ronelon",
+      "type": "Travel"
+    },
+    "status": "completed",
+    "amount": 1067.55,
+    "type": "credit",
+    "currency": "EUR"
+  },
+  {
+    "id": "682ebd3e82866d86933a2178",
+    "date": "2024-10-14T09:59:39",
+    "card": {
+      "lastFour": 431
+    },
+    "vendor": {
+      "name": "Exovent",
+      "type": "Software"
+    },
+    "status": "failed",
+    "amount": 1775.97,
+    "type": "credit",
+    "currency": "INR"
+  },
+  {
+    "id": "682ebd3ea64b8e9305e14e5b",
+    "date": "2025-01-08T12:45:21",
+    "card": {
+      "lastFour": 8885
+    },
+    "vendor": {
+      "name": "Datagene",
+      "type": "Services"
+    },
+    "status": "completed",
+    "amount": 4629.13,
+    "type": "debit",
+    "currency": "INR"
+  }
+]

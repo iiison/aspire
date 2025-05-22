@@ -15,6 +15,8 @@ module.exports = {
         navy: '#0C365A',
         action: { DEFAULT: '#325BAF', secondary: '#EDF3FF' },
         shade: '#00000014',
+        disabled: '#AAAAAA',
+        muted: '#F5F9FF',
       },
       boxShadow: {
         tabShadow: '0 1px 12px #00000014',

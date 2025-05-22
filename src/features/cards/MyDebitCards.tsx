@@ -4,9 +4,10 @@ import type { Card } from './types';
 import { useAction } from '../../hooks';
 import CardsCarousel from './CardCarousel';
 import CardLoading from './CardLoading';
-import { Bin, Freeze, Gpay, Meter, Undo } from '../../components/icons';
 import { CardActions, type Action } from './CardActions';
 import { Currency, Gauge, Snowflake, Trash2, Undo2 } from 'lucide-react';
+import CardDetailsChevron from './CardDetailsChevron';
+import CardTransactionsChevron from './CardTransactionsChevron';
 
 const MyDebitCards: FC = () => {
   const [activeCardIndex, setActiveCardIndex] = useState<number>(0);
@@ -93,7 +94,7 @@ const MyDebitCards: FC = () => {
   ];
 
   return (
-    <div className="grid grid-cols-12 gap-4">
+    <div className="grid grid-cols-12">
       <div className="col-span-7">
         {cardsLoading ? (
           <CardLoading />
@@ -118,15 +119,19 @@ const MyDebitCards: FC = () => {
           </>
         )}
       </div>
-      <div className="space-y-4 col-span-3">
-        <div className="bg-[#F5F9FF] rounded-lg p-4">
-          <p className="font-semibold mb-2">Card details</p>
-          {/* Toggle dropdown or display placeholder */}
-        </div>
-        <div className="bg-[#F5F9FF] rounded-lg p-4">
-          <p className="font-semibold mb-2">Recent transactions</p>
-          {/* Transactions go here */}
-        </div>
+      <div className="space-y-4 col-span-4">
+        {Array.isArray(cardsList) && cardsList.length > 0 ? (
+          <>
+            <div className="mb-6">
+              <CardDetailsChevron card={cardsList[activeCardIndex]} />
+            </div>
+            <div className="mb-6">
+              <CardTransactionsChevron card={cardsList[activeCardIndex]} />
+            </div>
+          </>
+        ) : (
+          <p>No card</p>
+        )}
       </div>
     </div>
   );

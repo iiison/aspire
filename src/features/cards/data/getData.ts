@@ -1,5 +1,13 @@
 import cards from './dummyData.json';
-import type { Card, CardNumber, CardVendor } from '../types';
+import transactions from './transactions.json';
+
+import type {
+  Card,
+  CardNumber,
+  CardTransaction,
+  CardVendor,
+  TransactionType,
+} from '../types';
 
 export const getCards = async (): Promise<Card[]> => {
   await new Promise((resolve) => setTimeout(resolve, 1000));
@@ -13,4 +21,18 @@ export const getCards = async (): Promise<Card[]> => {
   });
 
   return allCards;
+};
+
+export const getCardTransactions = async (
+  cardNumber: string,
+): Promise<CardTransaction[]> => {
+  await new Promise((resolve) => setTimeout(resolve, 1000));
+  const cardNum = Number(cardNumber);
+
+  return transactions
+    .filter((t) => t.card.lastFour === cardNum)
+    .map((t) => ({
+      ...t,
+      type: t.type as TransactionType,
+    }));
 };

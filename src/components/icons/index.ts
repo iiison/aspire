@@ -13,3 +13,5 @@ export { default as Meter } from './Meter';
 export { default as Gpay } from './Gpay';
 export { default as Undo } from './Undo';
 export { default as Bin } from './Bin';
+export { default as CardDtailIcon } from './CardDtailIcon';
+export { default as TransactionsIcon } from './Transactions';

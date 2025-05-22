@@ -1,3 +1,4 @@
+import type { FC } from 'react';
 import Carousel from '../../components/Carousel';
 import CardPreview from './CardPreview';
 import type { Card } from './types';
@@ -6,7 +7,7 @@ type Props = {
   cards: Card[];
   onCardChange: (index: number) => void;
 };
-const CardsCarousel = ({ cards, onCardChange }: Props) => {
+const CardsCarousel: FC<Props> = ({ cards, onCardChange }: Props) => {
   return (
     <div className="w-full mb-8">
       <Carousel onIndexChange={onCardChange}>
