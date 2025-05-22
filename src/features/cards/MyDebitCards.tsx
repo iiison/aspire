@@ -1,23 +1,20 @@
 import { useState, type FC } from 'react';
-import { getCards } from './data/getData';
-import type { Card } from './types';
-import { useAction } from '../../hooks';
 import CardsCarousel from './CardCarousel';
 import CardLoading from './CardLoading';
 import { CardActions, type Action } from './CardActions';
 import { Currency, Gauge, Snowflake, Trash2, Undo2 } from 'lucide-react';
 import CardDetailsChevron from './CardDetailsChevron';
 import CardTransactionsChevron from './CardTransactionsChevron';
+import { useCardContext } from '../../contexts/CardContext';
 
 const MyDebitCards: FC = () => {
+  const { dispatch, cards: cardsList } = useCardContext();
   const [activeCardIndex, setActiveCardIndex] = useState<number>(0);
-  const [cardsList, cardsLoading, setCards] = useAction<Card[]>(getCards);
-
   const onCardChange = (index: number) => {
     setActiveCardIndex(index);
   };
 
-  if (!cardsLoading && !Array.isArray(cardsList)) {
+  if (!Array.isArray(cardsList)) {
     return <p>Something went wrong</p>;
   }
 
@@ -30,22 +27,11 @@ const MyDebitCards: FC = () => {
           return;
         }
 
-        const activeCard = cardsList[activeCardIndex];
-
-        if (activeCard.isFrozen) {
-          return;
-        }
-
-        setCards((prev) => {
-          if (!prev) {
-            return prev;
-          }
-
-          const clone = structuredClone(prev);
-
-          clone[activeCardIndex].isFrozen = true;
-
-          return clone;
+        dispatch({
+          type: 'TOGGLE_FREEZE_CARD',
+          payload: {
+            id: cardsList[activeCardIndex].id,
+          },
         });
       },
     },
@@ -77,17 +63,11 @@ const MyDebitCards: FC = () => {
       label: 'Cancel card',
       icon: <Trash2 size="20" color="#fff" />,
       action: () => {
-        setCards((prev) => {
-          if (!prev) {
-            return prev;
-          }
-
-          const clone = structuredClone(prev);
-          const activeCard = clone[activeCardIndex];
-
-          setActiveCardIndex(0);
-
-          return clone.filter((card) => card.id !== activeCard.id);
+        dispatch({
+          type: 'DELETE_CARD',
+          payload: {
+            id: cardsList[activeCardIndex].id,
+          },
         });
       },
     },
@@ -96,21 +76,17 @@ const MyDebitCards: FC = () => {
   return (
     <div className="grid grid-cols-12">
       <div className="col-span-7">
-        {cardsLoading ? (
+        {!Array.isArray(cardsList) || cardsList.length === 0 ? (
           <CardLoading />
         ) : (
           <>
-            <CardsCarousel
-              cards={cardsList ?? []}
-              onCardChange={onCardChange}
-            />
+            <CardsCarousel onCardChange={onCardChange} />
             <div className="w-full flex justify-center">
               {Array.isArray(cardsList) && cardsList.length > 0 ? (
                 <CardActions
                   actions={actions}
                   cards={cardsList}
                   activeCardIndex={activeCardIndex}
-                  setCards={setCards}
                 />
               ) : (
                 <p>No Cards</p>

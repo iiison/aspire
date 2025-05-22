@@ -5,9 +5,23 @@ import type { TabItem } from '../components/Tabs';
 import Tabs from '../components/Tabs';
 import { Modal } from '../components/Modal';
 import AddCardForm from '../features/cards/AddCardForm';
+import { CardProvider, useCardContext } from '../contexts/CardContext';
+import { getCards } from '../features/cards/data/getData';
+import type { Card } from '../features/cards/types';
+import { useAction } from '../hooks';
 
-const Dashboard: FC = () => {
+const DashboardInternal: FC = () => {
   const [isModalOpen, setModalOpen] = useState(false);
+  const [cardsList, cardsLoading] = useAction<Card[]>(getCards);
+  const { dispatch, cards } = useCardContext();
+
+  if (!cardsLoading && cards.length === 0 && Array.isArray(cardsList)) {
+    dispatch({
+      type: 'SET_CARDS',
+      payload: cardsList,
+    });
+  }
+
   const tabs: TabItem[] = [
     {
       id: 'my-debit-cards',
@@ -53,6 +67,14 @@ const Dashboard: FC = () => {
 
       <Tabs tabs={tabs} label="Dashboard" />
     </div>
+  );
+};
+
+const Dashboard: FC = () => {
+  return (
+    <CardProvider>
+      <DashboardInternal />
+    </CardProvider>
   );
 };
 

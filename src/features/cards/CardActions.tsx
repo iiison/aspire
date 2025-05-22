@@ -1,4 +1,4 @@
-import type { Dispatch, FC, SetStateAction } from 'react';
+import type { FC } from 'react';
 import type { Card } from './types';
 
 export type Action = {
@@ -11,7 +11,6 @@ type CardActionsProps = {
   actions: Action[];
   cards: Card[] | null;
   activeCardIndex: number;
-  setCards: Dispatch<SetStateAction<Card[] | null>>;
 };
 
 export const CardActions: FC<CardActionsProps> = ({ cards, actions }) => {

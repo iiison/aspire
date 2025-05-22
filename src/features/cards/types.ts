@@ -1,5 +1,3 @@
-import { Currency } from 'lucide-react';
-
 export type CardNumber = [string, string, string, string];
 export const CARD_VENDORS = {
   VISA: 'visa',

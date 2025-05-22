@@ -1,4 +1,6 @@
 import { useActionState, type FC } from 'react';
+import { useCardContext } from '../../contexts/CardContext';
+import type { CardNumber } from './types';
 
 type CardFormValues = {
   name: string;
@@ -78,6 +80,10 @@ function reducer(_: CardFormState, formData: FormData): CardFormState {
     errors.expiry = 'Invalid expiry format or expired.';
   }
 
+  if (Object.keys(errors).length === 0) {
+    console.log('hi');
+  }
+
   return {
     errors,
     values: { name, cardNumber, cvv, expiry },
@@ -89,9 +95,45 @@ const AddCardForm: FC = () => {
     reducer,
     initialState,
   );
+  const { dispatch } = useCardContext();
+
+  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const formData = new FormData(e.currentTarget);
+    const newState = reducer(state, formData);
+
+    if (Object.keys(newState.errors).length === 0) {
+      const [firstName, lastName] = newState.values.name.split(' ');
+      const [month, year] = newState.values.expiry.split('/');
+      dispatch({
+        type: 'ADD_CARD',
+        payload: {
+          id: crypto.randomUUID(),
+          vendor: 'visa',
+          cardHolder: {
+            firstName,
+            lastName,
+          },
+          number: newState.values.cardNumber
+            .replace(/\s+/g, '')
+            .match(/.{1,4}/g) as CardNumber,
+          cvv: Number(newState.values.cvv),
+          expiry: {
+            month: Number(month.trim()),
+            year: Number(year.trim()),
+          },
+          isFrozen: false,
+        },
+      });
+
+      // Optionally reset form here
+      e.currentTarget.reset();
+    }
+  };
 
   return (
-    <form action={formAction} className="space-y-4 mt-4">
+    <form action={formAction} onSubmit={onSubmit} className="space-y-4 mt-4">
       <div>
         <label htmlFor="name" className="block text-sm font-medium">
           Cardholder Name
