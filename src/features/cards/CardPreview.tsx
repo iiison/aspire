@@ -34,22 +34,22 @@ const CardPreview: FC<Card> = ({
         role="region"
         aria-label={`${cardHolder.firstName}'s ${vendor} card`}
         className={clsx(
-          'relative p-8 rounded-2xl shadow-md text-white transition-all duration-300',
+          'relative md:p-8 p-4 rounded-2xl shadow-md text-white transition-all duration-300',
           isFrozen ? 'opacity-60 grayscale' : 'opacity-100',
-          'bg-active w-[415px] h-[250px]',
+          'bg-active md:w-[415px] md:h-[260px] w-[320px] h-[200px]',
         )}
       >
         <div className="w-full flex mb-5">
-          <LogoSm className="h-[20px] w-[66px] fill-white ml-auto" />
+          <LogoSm className="h-[20px] w-[66px] fill-white ml-auto scale-75 md:scale-100" />
         </div>
-        <header className="flex mb-6">
-          <h2 className="text-2xl font-bold uppercase tracking-wider w-full">
+        <header className="flex md:mb-6 mb-3">
+          <h2 className="md:text-2xl text-xl font-bold uppercase tracking-wider w-full">
             {cardHolder.firstName} {cardHolder.lastName}
           </h2>
         </header>
 
-        <div className="flex justify-between items-center mb-4">
-          <div className="text-2xl font-bold tracking-wider">
+        <div className="flex justify-between items-center md:mb-4 mb-2">
+          <div className="md:text-2xl text-xl font-bold tracking-wider">
             {showCardNumber ? number.join(' ') : `•••• •••• •••• ${number[3]}`}
           </div>
         </div>
@@ -71,7 +71,7 @@ const CardPreview: FC<Card> = ({
           </div>
         </footer>
         <div className="w-full flex">
-          <Visa className="h-[24px] w-[84px] fill-white ml-auto translate-x-5" />
+          <Visa className="scale-75 md:scale-100 h-[24px] w-[84px] fill-white ml-auto translate-x-5" />
         </div>
 
         {isFrozen && (

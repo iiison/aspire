@@ -29,7 +29,7 @@ const Sidebar: React.FC = () => {
       setActiveLink(label);
     };
   return (
-    <aside className="w-full lg:w-80 bg-sidebar text-white lg:p-12 p-5 flex flex-row lg:flex-col justify-between lg:static fixed z-10 bottom-0 left-0">
+    <aside className="w-full lg:w-80 bg-sidebar text-white lg:p-5 p-5 flex flex-row lg:flex-col justify-between lg:static fixed z-10 bottom-0 left-0">
       <div className="w-full">
         <div className="lg:flex flex-col hidden w-full">
           <a href="#" className="mb-5 flex w-full">

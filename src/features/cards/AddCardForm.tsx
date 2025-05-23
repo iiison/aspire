@@ -10,6 +10,10 @@ type CardFormValues = {
   expiry: string;
 };
 
+type FormProps = {
+  onFormSuccess: () => void;
+};
+
 type CardFormErrors = Partial<Record<keyof CardFormValues, string>>;
 
 type CardFormState = {
@@ -54,11 +58,16 @@ const initialState: CardFormState = {
   },
 };
 
-export function reducer(
-  _: CardFormState,
-  formData: FormData,
-  dispatch?: Dispatch<CardAction>,
-): CardFormState {
+export function reducer({
+  formData,
+  dispatch,
+  onFormSuccess,
+}: {
+  state: CardFormState;
+  formData: FormData;
+  onFormSuccess?: FormProps['onFormSuccess'];
+  dispatch?: Dispatch<CardAction>;
+}): CardFormState {
   const name = formData.get('name')?.toString().trim() || '';
   const cardNumber = formData.get('cardNumber')?.toString().trim() || '';
   const cvv = formData.get('cvv')?.toString().trim() || '';
@@ -106,6 +115,10 @@ export function reducer(
         isFrozen: false,
       },
     });
+
+    if (onFormSuccess) {
+      onFormSuccess();
+    }
   }
 
   return {
@@ -114,10 +127,10 @@ export function reducer(
   };
 }
 
-const AddCardForm: FC = () => {
+const AddCardForm: FC<FormProps> = ({ onFormSuccess }) => {
   const { dispatch } = useCardContext();
   const reducerWitDispatch = (state: CardFormState, formData: FormData) => {
-    return reducer(state, formData, dispatch);
+    return reducer({ state, formData, dispatch, onFormSuccess });
   };
   const [state, formAction] = useActionState<CardFormState, FormData>(
     reducerWitDispatch,
@@ -132,6 +145,7 @@ const AddCardForm: FC = () => {
         </label>
         <input
           name="name"
+          placeholder="John Doe"
           id="name"
           defaultValue={state.values.name}
           className="border p-2 rounded w-full"
@@ -146,6 +160,8 @@ const AddCardForm: FC = () => {
           Card Number
         </label>
         <input
+          placeholder="1234567890122345"
+          maxLength={17}
           name="cardNumber"
           id="cardNumber"
           defaultValue={state.values.cardNumber}
@@ -162,6 +178,8 @@ const AddCardForm: FC = () => {
         </label>
         <input
           name="cvv"
+          placeholder="123"
+          maxLength={4}
           id="cvv"
           defaultValue={state.values.cvv}
           className="border p-2 rounded w-full"
@@ -178,6 +196,7 @@ const AddCardForm: FC = () => {
         <input
           name="expiry"
           id="expiry"
+          placeholder="02/25"
           defaultValue={state.values.expiry}
           className="border p-2 rounded w-full"
         />

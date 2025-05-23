@@ -6,9 +6,11 @@ import { CardContext } from '../../contexts/CardContext';
 const mockDispatch = vi.fn();
 
 const renderWithContext = () => {
+  const onFormSuccess = () => {};
+
   render(
     <CardContext.Provider value={{ dispatch: mockDispatch, cards: [] }}>
-      <AddCardForm />
+      <AddCardForm onFormSuccess={onFormSuccess} />
     </CardContext.Provider>,
   );
 };
@@ -110,19 +112,50 @@ describe('reducer function', () => {
       cvv: '123',
       expiry: '12/99',
     });
-    const result = reducer(
-      { errors: {}, values: { name: '', cardNumber: '', cvv: '', expiry: '' } },
-      form,
-    );
+    const result = reducer({
+      state: {
+        errors: {},
+        values: { name: '', cardNumber: '', cvv: '', expiry: '' },
+      },
+      formData: form,
+    });
     expect(result.errors).toEqual({});
+  });
+
+  it('calls success callback on valid data return', () => {
+    const onFormSuccess = vi.fn();
+    const dispatch = vi.fn();
+
+    const form = createFormData({
+      name: 'Jane Doe',
+      cardNumber: '4539 1488 0343 6467',
+      cvv: '123',
+      expiry: '12/99',
+    });
+    const result = reducer({
+      onFormSuccess,
+      dispatch,
+      state: {
+        errors: {},
+        values: { name: '', cardNumber: '', cvv: '', expiry: '' },
+      },
+      formData: form,
+    });
+
+    expect(result.errors).toEqual({});
+    expect(onFormSuccess).toHaveBeenCalled();
   });
 
   it('returns errors for missing fields', () => {
     const form = createFormData({});
-    const result = reducer(
-      { errors: {}, values: { name: '', cardNumber: '', cvv: '', expiry: '' } },
-      form,
-    );
+    const result = reducer({
+      state: {
+        errors: {},
+        values: { name: '', cardNumber: '', cvv: '', expiry: '' },
+      },
+      formData: form,
+    });
+
     expect(result.errors.name).toBeDefined();
     expect(result.errors.cardNumber).toBeDefined();
     expect(result.errors.cvv).toBeDefined();

@@ -9,11 +9,13 @@ import { CardProvider, useCardContext } from '../contexts/CardContext';
 import { getCards } from '../features/cards/data/getData';
 import type { Card } from '../features/cards/types';
 import { useAction } from '../hooks';
+import { useNotify } from '../contexts/NotificationProvider';
 
 const DashboardInternal: FC = () => {
   const [isModalOpen, setModalOpen] = useState(false);
   const [cardsList, cardsLoading] = useAction<Card[]>(getCards);
   const { dispatch, cards } = useCardContext();
+  const notify = useNotify();
 
   useEffect(() => {
     if (!cardsLoading && cards.length === 0 && Array.isArray(cardsList)) {
@@ -36,6 +38,10 @@ const DashboardInternal: FC = () => {
       Content: CompanyCards,
     },
   ];
+  const onFormSuccess = () => {
+    setModalOpen(false);
+    notify('Card added successfully!');
+  };
 
   return (
     <div>
@@ -63,7 +69,7 @@ const DashboardInternal: FC = () => {
             setModalOpen(false);
           }}
         >
-          <AddCardForm />
+          <AddCardForm onFormSuccess={onFormSuccess} />
         </Modal>
       </div>
 

@@ -63,6 +63,15 @@ const MyDebitCards: FC = () => {
       label: 'Cancel card',
       icon: <Trash2 size="20" color="#fff" />,
       action: () => {
+        setActiveCardIndex((prev) => {
+          let newIndex = prev - 1;
+
+          if (cardsList[newIndex] === undefined) {
+            newIndex = 0;
+          }
+
+          return newIndex;
+        });
         dispatch({
           type: 'DELETE_CARD',
           payload: {
